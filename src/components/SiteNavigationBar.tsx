@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from 'react'
 import { AnimatePresence, m } from 'motion/react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useInView } from 'react-intersection-observer'
 
@@ -66,11 +65,10 @@ export function SiteNavigationBar() {
                 href="/"
                 className="-ml-1 flex h-10 w-10 items-center justify-center rounded-lg"
               >
-                <Image
-                  src="/img/desktop-app-icon.png"
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/favicon.svg"
                   className="h-10 w-10"
-                  width={80}
-                  height={80}
                   alt="ERA Safety"
                 />
               </Link>
