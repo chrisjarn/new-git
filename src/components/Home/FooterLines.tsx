@@ -29,7 +29,7 @@ const lineVariants = {
   },
 };
 
-export default function FooterLines({ showGlow = true }: { showGlow?: boolean }) {
+export default function FooterLines({ showGlow = true, alwaysLit = false }: { showGlow?: boolean; alwaysLit?: boolean }) {
   return (
     <m.div
       variants={containerVariants}
@@ -43,7 +43,7 @@ export default function FooterLines({ showGlow = true }: { showGlow?: boolean })
           key={line.custom}
           variants={lineVariants}
           custom={line.custom}
-          style={{ opacity: line.opacity }}
+          style={{ opacity: alwaysLit ? 1 : line.opacity }}
           className={`relative h-3 transition-opacity duration-1000 ease-in hover:!opacity-100 hover:transition-opacity hover:duration-[120ms] hover:ease-in ${line.className}`}
         >
           <span

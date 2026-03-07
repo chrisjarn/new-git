@@ -93,7 +93,7 @@ export function Manifesto() {
         <PhoneMockup />
       </WidthContainer>
       <div className="relative z-10 mx-auto w-full max-w-7xl py-0">
-        <FooterLines />
+        <FooterLines alwaysLit />
       </div>
 
       {/* Compliance Gaps — The Problem */}
