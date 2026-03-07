@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react'
 import { AnimatePresence, m } from 'motion/react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useInView } from 'react-intersection-observer'
 
 import { cn } from '@/lib/utils'
@@ -61,12 +62,8 @@ export function SiteNavigationBar() {
         >
           <div className="mx-auto flex w-full flex-row flex-nowrap justify-between px-4">
             <div className="flex items-center justify-start">
-              <a
-                href="#hero"
-                onClick={(e) => {
-                  e.preventDefault()
-                  window.scrollTo({ top: 0, behavior: 'smooth' })
-                }}
+              <Link
+                href="/"
                 className="-ml-1 flex h-10 w-10 items-center justify-center rounded-lg"
               >
                 <Image
@@ -76,7 +73,7 @@ export function SiteNavigationBar() {
                   height={80}
                   alt="ERA Safety"
                 />
-              </a>
+              </Link>
             </div>
 
             <div className="flex items-center justify-end gap-1">
@@ -147,7 +144,7 @@ export function SiteNavigationBar() {
 
         <AnimatePresence>
           {showMobileMenu && (
-            <div className="pointer-events-auto relative flex flex-grow flex-col flex-nowrap justify-between sm:hidden">
+            <div className="pointer-events-auto relative flex grow flex-col flex-nowrap justify-between sm:hidden">
               <m.div
                 initial="hidden"
                 animate="visible"

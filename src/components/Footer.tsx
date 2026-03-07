@@ -71,7 +71,7 @@ export function Footer() {
       <footer className="relative overflow-hidden bg-card rounded-2xl px-6 py-10 md:p-12">
         {/* Background logo watermark */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <EraLogo className="h-full w-auto text-sand-3 opacity-50" />
+          <EraLogo className="h-full scale-140 w-auto text-sand-2 opacity-20" />
         </div>
         <div className="flex flex-col justify-between gap-x-20 gap-y-12 md:flex-row md:gap-y-0">
           {/* Logo + disclaimer */}
