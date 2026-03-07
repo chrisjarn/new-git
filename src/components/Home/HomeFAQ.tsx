@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
 
 import {
@@ -40,13 +39,25 @@ const faqsData: FaqItem[] = [
     id: 4,
     question: 'Can tenants access the system independently?',
     answer:
-      "Yes — tenants get their own login to manage wardens, view site plans and log incidents. Their activity feeds into the building owner's portfolio dashboard automatically.",
+      "Yes, tenants get their own login to manage wardens, view site plans and log incidents. Their activity feeds into the building owner's portfolio dashboard automatically.",
   },
   {
     id: 5,
     question: 'How does ERA handle multi-site portfolios?',
     answer:
       'ERA provides a single dashboard across all your sites. Filter by building, region or compliance status to see exactly where attention is needed.',
+  },
+  {
+    id: 6,
+    question: 'How long does it take to get set up?',
+    answer:
+      'Most teams are live within 2 weeks. We handle onboarding, data migration, and training. You don\u2019t need an IT team.',
+  },
+  {
+    id: 7,
+    question: 'Is our data secure?',
+    answer:
+      'ERA is hosted in Australia on SOC 2-compliant infrastructure. Your data never leaves the region.',
   },
 ]
 
@@ -55,22 +66,6 @@ export function FAQ() {
 
   const allFaqs: FaqItem[] = [
     ...faqsData,
-    {
-      id: 999,
-      question: "I didn't see my question here...",
-      answer: (
-        <p>
-          Still have more questions? Please{' '}
-          <Link
-            href="/contact"
-            className="text-brand-primary underline-offset-2 hover:underline"
-          >
-            get in touch
-          </Link>
-          .
-        </p>
-      ),
-    },
   ]
 
   const visibleFaqs = showAll ? allFaqs : allFaqs.slice(0, 4)

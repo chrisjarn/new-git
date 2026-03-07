@@ -7,6 +7,7 @@ import { ArrowRightCircleIcon } from '@/components/ui/Icons'
 import { CustomerLogos } from '@/components/Home/CustomerLogos'
 import { PageSubtitle, PageTitle } from '@/components/Layouts/PageHead'
 import { WidthContainer } from '@/components/Layouts/WidthContainer'
+import { AnimatedTitle } from '@/components/ui/AnimatedTitle'
 import { FAQ } from './HomeFAQ'
 import { HeroPreview } from './HeroPreview'
 import { SectionConnector } from './SectionConnector'
@@ -40,7 +41,7 @@ export function Manifesto() {
         >
           <m.div variants={fadeUp}>
             <PageTitle className="leading-[1] font-semibold">
-              One platform. 
+              One platform.
               <br />
               One workflow.
               <br />
@@ -50,7 +51,7 @@ export function Manifesto() {
 
           <m.div variants={fadeUp}>
             <PageSubtitle className="text-secondary text-balance  font-normal max-w-[50ch] leading-snug">
-              ERA replaces fragmented safety systems with a single platform that connects buildings, tenants, and compliance obligations into one coordinated workflow.
+              ERA connects buildings, tenants, and wardens into one platform so when the alarm sounds, everyone knows exactly what to do.
             </PageSubtitle>
           </m.div>
 
@@ -65,13 +66,13 @@ export function Manifesto() {
       </WidthContainer>
 
       {/* Hero Preview — bento grid */}
-      <WidthContainer className="py-8 md:py-12 lg:py-16">
+      <WidthContainer className="py-16 md:py-12 lg:py-16">
         <HeroPreview />
       </WidthContainer>
 
       {/* Feature sections */}
       <div id="features" className="scroll-mt-16" />
-      <WidthContainer className="gap-0 py-8 md:py-16 lg:py-20 xl:py-24">
+      <WidthContainer className="gap-0 py-16 md:py-16 lg:py-20 xl:py-24">
         <CriticalSection />
 
         <SectionConnector />
@@ -88,25 +89,23 @@ export function Manifesto() {
       </WidthContainer>
 
       {/* Phone Mockup + Footer Lines — phone sits on the green line */}
-      <WidthContainer className="pb-0 ">
+      <WidthContainer className="relative z-10 overflow-visible pb-0">
         <PhoneMockup />
       </WidthContainer>
-      <div className="mx-auto w-full max-w-7xl py-0">
+      <div className="relative z-10 mx-auto w-full max-w-7xl py-0">
         <FooterLines />
       </div>
 
       {/* Compliance Gaps — The Problem */}
-      <WidthContainer className="gap-0 py-20 md:py-16 lg:py-30 xl:py-30">
+      <WidthContainer className="relative z-0 gap-0 pt-20 pb-0 md:pt-16 md:pb-24 lg:pt-30 lg:pb-12 xl:pt-30 xl:pb-12">
         <ComplianceGapsSection />
       </WidthContainer>
 
       {/* Testimonials — Social Proof */}
-      <WidthContainer className="gap-0 py-8 md:py-16 lg:py-20 xl:py-24">
-        <TestimonialsSection />
-      </WidthContainer>
+      <TestimonialsSection />
 
       {/* Stats — Proof in Numbers */}
-      <WidthContainer className="gap-0 py-8 md:py-16 lg:py-20 xl:py-24">
+      <WidthContainer className="gap-0 py-16 md:py-16 lg:py-20 xl:py-24">
         <StatsSection />
       </WidthContainer>
 
@@ -116,17 +115,15 @@ export function Manifesto() {
 
       {/* Compliance Standards */}
       <div id="compliance" className="scroll-mt-16" />
-      <WidthContainer className="gap-0 py-8 md:py-16 lg:py-20 xl:py-24">
-        <ComplianceSection />
-      </WidthContainer>
+      <ComplianceSection />
 
       {/* Demo CTA */}
-      <WidthContainer className="gap-0 py-8 md:py-16 lg:py-20 xl:py-24">
+      <WidthContainer className="gap-0 py-16 md:py-16 lg:py-20 xl:py-24">
         <DemoSection />
       </WidthContainer>
 
       {/* Founder note + CTA + FAQ */}
-      <WidthContainer className="gap-12 py-8 md:gap-24 md:py-16 lg:gap-28 lg:py-20 xl:gap-32 xl:py-24">
+      <WidthContainer className="gap-12 py-16 md:gap-24 md:py-16 lg:gap-28 lg:py-20 xl:gap-32 xl:py-24">
         <AnimatedSection className='flex '>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_2fr] md:gap-x-[4.5rem]">
             <SectionHeading>Common questions</SectionHeading>
@@ -138,18 +135,8 @@ export function Manifesto() {
   )
 }
 
-function SectionHeading({ children, className }: { children: React.ReactNode; className?: string }) {
-  return (
-    <m.h3
-      variants={fadeUp}
-      className={cn(
-        'scroll-mt-20 text-balance text-[clamp(2.2rem,_5vw,_3.75rem)] font-semibold leading-[1.05] tracking-[-0.02em]',
-        className
-      )}
-    >
-      {children}
-    </m.h3>
-  )
+function SectionHeading({ children, className }: { children: string; className?: string }) {
+  return <AnimatedTitle as="h3" className={cn('scroll-mt-20', className)}>{children}</AnimatedTitle>
 }
 
 function AnimatedSection({ children, className }: { children: React.ReactNode; className?: string }) {
@@ -173,19 +160,30 @@ function CTA() {
       <Button
         variant="flat"
         size='large'
-        href="/how-it-works"
-    
+        href="#features"
+        className="md:hidden"
+        onClick={() => {
+          document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })
+        }}
       >
-        See How It Works
+        See Features
+      </Button>
+      <Button
+        variant="flat"
+        size='large'
+        href="/how-it-works"
+        className="hidden md:inline-flex"
+      >
+        Watch a 2-Min Overview
       </Button>
       <Button
         variant="brand"
         size='large'
         href="/demo"
         rightSlot={<ArrowRightCircleIcon />}
- 
+
       >
-        Request a Demo
+        Book a Demo
       </Button>
     </div>
   )

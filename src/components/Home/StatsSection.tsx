@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { m, useInView, useReducedMotion } from 'motion/react'
 import { staggerContainer, fadeUp, viewportOnce } from '@/lib/motion'
+import { AnimatedTitle } from '@/components/ui/AnimatedTitle'
 import { NumberTicker } from './NumberTicker'
 import { Button } from '@/components/ui/Button'
 import { ArrowRightCircleIcon } from '@/components/ui/Icons'
@@ -11,7 +12,7 @@ const stats = [
   { value: 20, suffix: '+', label: 'Years of fire safety expertise' },
   { value: 15, suffix: '+', label: 'Million sqm under management' },
   { value: 10, label: 'Major compliance standards covered' },
-  { value: 8, label: 'Industry sectors supported' },
+  { value: 6, label: 'Sectors, from hospitals to high-rises' },
 ]
 
 export function StatsSection() {
@@ -26,18 +27,16 @@ export function StatsSection() {
       variants={staggerContainer(0.1)}
       initial={prefersReducedMotion ? 'visible' : 'hidden'}
       animate={animate}
-      className="flex flex-col items-center gap-6 md:gap-10"
+      className="flex flex-col items-center gap-10 md:gap-12"
     >
       <m.div variants={fadeUp} className="flex flex-col items-center gap-3 text-center">
-        <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
+        <span className="text-sm font-semibold uppercase tracking-wider text-brand-primary">
           Trusted at Scale
         </span>
-        <h2 className="max-w-2xl text-balance text-[clamp(2.2rem,_5vw,_3.75rem)] font-semibold leading-[1.05] tracking-[-0.02em]">
-          Proof in numbers
-        </h2>
+        <AnimatedTitle className="">Two decades of safety expertise, one modern platform</AnimatedTitle>
       </m.div>
 
-      <m.div variants={fadeUp} className="grid w-full grid-cols-2 gap-8 md:grid-cols-4">
+      <m.div variants={fadeUp} className="grid w-full grid-cols-2 gap-3 md:gap-4 md:grid-cols-4">
         {stats.map((stat) => (
           <NumberTicker
             key={stat.label}
@@ -50,12 +49,12 @@ export function StatsSection() {
 
       <m.div variants={fadeUp}>
         <Button
-          variant="brand"
+          variant="base"
           size="large"
           href="/demo"
           rightSlot={<ArrowRightCircleIcon size={24} />}
         >
-          Request a Demo
+          Book a Demo
         </Button>
       </m.div>
     </m.section>

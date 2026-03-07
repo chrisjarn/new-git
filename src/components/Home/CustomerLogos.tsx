@@ -13,8 +13,8 @@ const logos = [
 export function CustomerLogos() {
   return (
     <div className="flex flex-col items-start justify-center gap-2 pb-4 pt-8">
-      <p className="text-quaternary text-xs font-semibold uppercase tracking-wider">Trusted by fast-growing companies</p>
-      <div className="flex flex-wrap items-center justify-center gap-x-4">
+      <p className="text-quaternary text-sm font-semibold uppercase tracking-wider">Trusted by safety teams across Australia and New Zealand</p>
+      <div className="flex flex-nowrap items-center gap-x-4 overflow-x-auto md:flex-wrap md:justify-center md:overflow-visible">
         {logos.map((logo) => (
           <div
             key={logo.alt}

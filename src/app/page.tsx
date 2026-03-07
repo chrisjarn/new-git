@@ -4,9 +4,9 @@ import { Footer } from "@/components/Footer";
 import { Manifesto } from "@/components/Home/Manifesto";
 
 export const metadata: Metadata = {
-  title: "ERA Safety — Intelligent Safety Management",
+  title: "ERA Safety | One Platform for Building Compliance & Emergency Readiness",
   description:
-    "ERA replaces fragmented safety systems with a single platform that connects buildings, tenants, and compliance obligations into one coordinated workflow.",
+    "Stop chasing spreadsheets and shared drives. ERA connects buildings, tenants, and compliance into one system so you're always audit-ready and incident-prepared.",
 };
 
 export default function Home() {

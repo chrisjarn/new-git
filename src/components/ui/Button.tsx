@@ -32,8 +32,8 @@ const variantClasses: Record<string, string> = {
 }
 
 const sizeClasses: Record<string, string> = {
-  sm: 'px-2.5 py-1 text-xs',
-  base: 'px-3 py-1.5 text-base',
+  sm: 'px-2.5 py-1 text-sm',
+  base: 'px-3 py-1.5 text-sm',
   large: 'px-4 py-2.5 text-base',
 }
 
@@ -45,7 +45,7 @@ export function Button({
   href,
   onClick,
   fullWidth,
-  round: _round,
+  round: _round, // eslint-disable-line @typescript-eslint/no-unused-vars
   iconOnly,
   icon: Icon,
   iconPosition = 'right',

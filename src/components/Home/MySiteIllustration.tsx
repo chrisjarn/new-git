@@ -118,7 +118,7 @@ export function MySiteIllustration() {
             >
               {isLogo ? (
                 <div className="flex h-20 w-16 items-center justify-center rounded-sm border border-border bg-black p-3 shadow-md shadow-black/5">
-            
+                  <EraLogo className="text-[#EDEEF0]" />
                 </div>
               ) : <card.Illustration />}
             </m.div>

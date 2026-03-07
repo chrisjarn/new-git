@@ -1,67 +1,123 @@
-import Link from 'next/link'
-import { ERAIcon } from '@/components/SiteNavigationBar'
-import { WidthContainer } from '@/components/Layouts/WidthContainer'
-import { XIcon, LinkedInIcon } from '@/components/ui/Icons'
+"use client";
+
+import Link from "next/link";
+import { XIcon, LinkedInIcon } from "@/components/ui/Icons";
+import FooterLines from "@/components/Home/FooterLines";
+import { EraLogo } from "@/components/illustrations/era-logo";
+
+const footerData = [
+  {
+    id: 1,
+    title: "Product",
+    subLinks: [
+      { label: "Features", href: "/" },
+      { label: "Pricing", href: "/" },
+      { label: "Integrations", href: "/" },
+      { label: "FAQ", href: "/" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Resources",
+    subLinks: [
+      { label: "Documentation", href: "/" },
+      { label: "Help & Support", href: "/" },
+      { label: "Security", href: "/" },
+    ],
+  },
+  {
+    id: 3,
+    title: "Company",
+    subLinks: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Use", href: "/terms" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+];
+
+function FooterLinkColumn({
+  data,
+}: {
+  data: (typeof footerData)[number];
+}) {
+  return (
+    <li className="tracking-[-0.09px]">
+      <p className="text-primary text-sm font-medium leading-[105%]">
+        {data.title}
+      </p>
+      <ul className="mt-4 flex list-none flex-col gap-y-3">
+        {data.subLinks.map((link) => (
+          <li key={link.label} className="leading-[105%]">
+            <Link
+              className="text-tertiary hover:text-primary text-sm leading-[120%] transition-colors duration-100 ease-in"
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+}
+
+const socialIconClass =
+  "text-quaternary hover:text-primary transition-colors duration-100 ease-in";
 
 export function Footer() {
   return (
-    <>
-      <div className="relative hidden dark:block">
-        <div className="absolute bottom-0 left-0 right-0 z-30 h-px bg-gradient-to-r from-white via-neutral-200 to-white dark:from-gray-950 dark:via-gray-750 dark:to-gray-950" />
-      </div>
-
-      <div className="flex w-full justify-center border-t py-12 md:py-16 lg:py-20 2xl:py-24 dark:border-transparent">
-        <WidthContainer className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-          <div className="flex flex-col gap-4">
-            <Link href="/" className="text-primary select-none">
-              <div className="flex items-center gap-1.5">
-                <ERAIcon />
-                <span className="text-primary text-lg font-semibold">ERA Safety</span>
-              </div>
+    <div className="mx-auto w-[min(100%,1082px)] px-5 pb-12 md:p-0 md:pb-6">
+      <footer className="relative overflow-hidden bg-card rounded-2xl px-6 py-10 md:p-12">
+        {/* Background logo watermark */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <EraLogo className="h-full w-auto text-sand-3 opacity-50" />
+        </div>
+        <div className="flex flex-col justify-between gap-x-20 gap-y-12 md:flex-row md:gap-y-0">
+          {/* Logo + disclaimer */}
+          <div>
+            <Link href="/" className="select-none">
+              <span className="text-primary text-lg font-semibold">
+                ERA Safety
+              </span>
             </Link>
-            <p className="text-tertiary max-w-[32ch] text-sm">
-              One platform for building safety, compliance, and emergency readiness.
+            <p className="text-quaternary mt-8 max-w-[433px] text-sm leading-[120%] tracking-[0.1px]">
+              ERA Safety provides a unified platform for building safety,
+              compliance, and emergency readiness. Our tools help organizations
+              manage risks, maintain regulatory compliance, and coordinate
+              emergency response across teams and locations.
             </p>
-            <div className="flex items-center gap-4">
-              {[
-                { icon: <XIcon />, label: 'X/Twitter', href: '#' },
-                { icon: <LinkedInIcon />, label: 'LinkedIn', href: '#' },
-              ].map((social) => (
-                <Link
-                  key={social.label}
-                  className="text-quaternary hover:text-primary text-sm"
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">{social.label}</span>
-                  {social.icon}
-                </Link>
+          </div>
+
+          {/* Link columns */}
+          <div className="w-[min(100%,457px)]">
+            <ul className="flex list-none flex-wrap justify-start gap-8 xs:flex-nowrap xs:justify-between md:justify-start md:gap-x-[4.5rem]">
+              {footerData.map((item) => (
+                <FooterLinkColumn key={item.id} data={item} />
               ))}
-            </div>
+            </ul>
           </div>
+        </div>
 
-          <div className="flex flex-wrap gap-6 text-sm">
-            <Link href="/contact" className="text-tertiary hover:text-primary">
-              Contact Us
+        {/* Social icons + copyright */}
+        <div className="mt-[6.5rem] flex w-full items-center justify-between">
+          <div className="flex items-center gap-x-5">
+            <Link href="#" target="_blank" rel="noopener noreferrer">
+              <span className="sr-only">X/Twitter</span>
+              <XIcon className={socialIconClass} />
             </Link>
-            <Link href="/privacy" className="text-tertiary hover:text-primary">
-              Privacy
-            </Link>
-            <Link href="/terms" className="text-tertiary hover:text-primary">
-              Terms
+            <Link href="#" target="_blank" rel="noopener noreferrer">
+              <span className="sr-only">LinkedIn</span>
+              <LinkedInIcon className={socialIconClass} />
             </Link>
           </div>
-        </WidthContainer>
-      </div>
-
-      <div className="flex w-full justify-center border-t border-black/5 py-6 dark:border-white/5">
-        <WidthContainer>
-          <p className="text-quaternary text-xs">
+          <p className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} ERA Safety. All rights reserved.
           </p>
-        </WidthContainer>
-      </div>
-    </>
-  )
+        </div>
+      </footer>
+
+      <FooterLines showGlow={false} />
+    </div>
+  );
 }

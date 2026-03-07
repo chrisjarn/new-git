@@ -2,11 +2,11 @@
 
 import { useRef } from 'react'
 import { m, useInView, useReducedMotion } from 'motion/react'
-import { staggerContainer, fadeUp, viewportOnce } from '@/lib/motion'
+import { staggerContainer, fadeUp } from '@/lib/motion'
+import { AnimatedTitle } from '@/components/ui/AnimatedTitle'
 import { BentoCard } from './BentoCard'
 import { ChatBubbles } from './ChatBubbles'
-import { Button } from '@/components/ui/Button'
-import { ArrowRightCircleIcon } from '@/components/ui/Icons'
+import { WorkflowSection } from './WorkflowSection'
 
 const gaps = [
   {
@@ -21,9 +21,9 @@ const gaps = [
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
     ),
-    title: 'Reactive, Not Proactive',
+    title: 'Found out too late',
     description:
-      'Most teams only discover gaps after an incident or audit — when it is already too late to fix them.',
+      'Most teams discover compliance gaps after an incident or failed audit, when the damage is already done.',
   },
   {
     icon: (
@@ -31,19 +31,13 @@ const gaps = [
     ),
     title: 'No Single Source of Truth',
     description:
-      'Responsibility is scattered across building managers, contractors, and tenants with no shared visibility.',
+      'Responsibility is split across building managers, contractors, and tenants with no shared view of who\u2019s done what.',
   },
 ]
 
-const solution = {
-  title: 'ERA connects every piece',
-  description:
-    'One platform links your buildings, tenants, wardens, and compliance obligations into a single, always-current workflow — so nothing falls through the cracks.',
-}
-
 export function ComplianceGapsSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, viewportOnce)
+  const isInView = useInView(ref, { once: true, amount: 0.05, margin: '100px' as `${number}px` })
   const prefersReducedMotion = useReducedMotion()
   const animate = prefersReducedMotion || isInView ? 'visible' : 'hidden'
 
@@ -53,19 +47,17 @@ export function ComplianceGapsSection() {
       variants={staggerContainer(0.1)}
       initial={prefersReducedMotion ? 'visible' : 'hidden'}
       animate={animate}
-      className="flex flex-col items-center gap-6 md:gap-10"
+      className="flex flex-col items-center gap-10 md:gap-12"
     >
-      <m.div variants={fadeUp} className="relative w-full">
+      <m.div variants={fadeUp} className="relative w-full lg:pt-20">
         <div className="flex flex-col gap-3">
-          <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
+          <span className="text-sm font-semibold uppercase tracking-wider text-brand-primary">
             The Problem
           </span>
-          <h2 className="max-w-2xl text-balance text-[clamp(2.2rem,_5vw,_3.75rem)] font-semibold leading-[1.05] tracking-[-0.02em]">
-            Compliance Gaps Hide in Plain Sight
-          </h2>
+          <AnimatedTitle className="max-w-2xl">The gaps you don&apos;t see are the ones that cost you</AnimatedTitle>
         </div>
-        <div className="pointer-events-none absolute right-0 bottom-0 hidden md:block">
-          {/* <ChatBubbles /> */}
+        <div className="pointer-events-none absolute right-0 -top-16 hidden md:block">
+          <ChatBubbles />
         </div>
       </m.div>
 
@@ -77,34 +69,14 @@ export function ComplianceGapsSection() {
                 {gap.icon}
               </div>
               <h3 className="text-base font-semibold">{gap.title}</h3>
-              <p className="text-sm leading-relaxed text-secondary">{gap.description}</p>
+              <p className="font-jakarta text-sm leading-relaxed text-secondary">{gap.description}</p>
             </BentoCard>
           </m.div>
         ))}
       </div>
 
-      <m.div variants={fadeUp} className="flex w-full  py-20 justify-center">
-        <ChatBubbles />
-      </m.div>
 
-      <m.div variants={fadeUp} className="w-full">
-        <BentoCard className="flex flex-col items-center gap-4 border border-brand-primary/20  p-8 text-center dark:bg-brand-primary/10">
-          <div className="flex size-10 items-center justify-center rounded-lg  text-brand-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><path d="m9 11 3 3L22 4" /></svg>
-          </div>
-          <h3 className="text-lg font-semibold">{solution.title}</h3>
-          <p className="max-w-lg text-sm leading-relaxed text-secondary">
-            {solution.description}
-          </p>
-          <Button
-            variant="brand"
-            href="/how-it-works"
-            rightSlot={<ArrowRightCircleIcon size={20} />}
-          >
-            See How ERA Works
-          </Button>
-        </BentoCard>
-      </m.div>
+      <WorkflowSection />
     </m.section>
   )
 }

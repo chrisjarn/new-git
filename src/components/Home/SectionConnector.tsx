@@ -12,7 +12,7 @@ export function SectionConnector() {
       initial={prefersReducedMotion ? 'visible' : 'hidden'}
       whileInView="visible"
       viewport={{ once: true, margin: '-50px' }}
-      className="flex justify-center py-10 md:py-12"
+      className="flex justify-center py-4 md:py-12"
     >
     </m.div>
   )

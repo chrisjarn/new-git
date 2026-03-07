@@ -10,7 +10,7 @@ export function CaptureSection() {
       reversed
       badge={{ icon: Camera, label: 'Capture', color: 'var(--color-accent-cyan)' }}
       title="Log hazards before you leave the area"
-      description="Spot it, log it, assign it. Photo evidence, severity, and ownership captured on the spot — no chasing up later."
+      description="Spot it, log it, assign it. Photo evidence, severity, and ownership captured on the spot. No chasing up later."
       bullets={[
         'Mobile hazard and inspection logging',
         'Photo evidence register',

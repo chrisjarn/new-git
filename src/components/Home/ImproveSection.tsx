@@ -9,11 +9,11 @@ export function ImproveSection() {
     <FeatureSection
       badge={{ icon: GraduationCap, label: 'Improve', color: 'var(--color-accent-green)' }}
       title="Close the gap between drills and readiness"
-      description="ERA maps every warden to AS3745 requirements and tracks completion live. Debrief findings feed straight back into your training plan."
+      description="ERA maps every warden to compliance requirements and tracks completion live. After every drill, findings feed directly into your next training plan so gaps close themselves."
       bullets={[
-        'AS3745 competency tracking',
+        'Competency tracking (AS 3745 aligned)',
         'Role-based training dashboards',
-        'Debrief-to-plan feedback loop',
+        'Drill debriefs auto-update training plans',
         'Overdue certification alerts',
       ]}
       illustration={<KanbanIllustration />}

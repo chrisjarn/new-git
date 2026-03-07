@@ -113,7 +113,7 @@ function AccordionItem({
         data-slot="accordion-item"
         value={value}
         className={cn(
-          'mb-2 rounded-xl pb-1.5 last:mb-0 dark:bg-sand-2 ',
+          'mb-2 rounded-xl pb-1.5 last:mb-0 dark:bg-sand-1 ',
           className,
         )}
         {...props}

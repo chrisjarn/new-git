@@ -2,35 +2,35 @@
 
 import { useRef } from 'react'
 import { m, useInView, useReducedMotion } from 'motion/react'
-import { scaleIn, staggerContainer, viewportOnce, fadeIn } from '@/lib/motion'
+import { scaleIn, staggerContainer, viewportOnce } from '@/lib/motion'
 import { CircleExclamation, Camera, GraduationCap, House } from '@gravity-ui/icons'
 import { BentoCard } from './BentoCard'
 
 const previews = [
   {
     label: 'Critical',
-    description: 'Incident coordination',
+    description: 'Coordinate incidents in real time',
     icon: CircleExclamation,
     color: 'text-red-500',
     bg: 'bg-sand-3',
   },
   {
     label: 'Capture',
-    description: 'Hazard & inspection logging',
+    description: 'Log hazards before they escalate',
     icon: Camera,
     color: 'text-amber-500',
     bg: 'bg-sand-3',
   },
   {
     label: 'Improve',
-    description: 'Training & competency',
+    description: 'Close training gaps automatically',
     icon: GraduationCap,
     color: 'text-blue-500',
     bg: 'bg-sand-3',
   },
   {
     label: 'My Site',
-    description: 'Site structure & docs',
+    description: 'One source of truth for every site',
     icon: House,
     color: 'text-brand-primary',
     bg: 'bg-sand-3',
@@ -59,7 +59,7 @@ export function HeroPreview() {
             </div>
             <div className="flex flex-col gap-0.5">
               <span className="text-sm font-semibold">{item.label}</span>
-              <span className="text-tertiary text-xs">{item.description}</span>
+              <span className="text-tertiary text-sm">{item.description}</span>
             </div>
           </BentoCard>
         </m.div>

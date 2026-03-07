@@ -9,12 +9,12 @@ export function CriticalSection() {
     <FeatureSection
       badge={{ icon: CircleExclamation, label: 'Coordinate' }}
       title="Real-time response when every second counts"
-      description="One tap activates your plan. Wardens are notified, zones assigned, and every action logged — before the dust settles."
+      description="One tap activates your plan. Wardens are notified, zones assigned, and every action logged before the dust settles."
       bullets={[
         'Role-based incident alerts',
         'Live zone status tracking',
         'Headcount reconciliation',
-        'Drill simulation mode',
+        'Run drills without triggering real alerts',
       ]}
       illustration={<InvoiceIllustration />}
     />

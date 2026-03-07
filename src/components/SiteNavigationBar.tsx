@@ -44,11 +44,6 @@ export function SiteNavigationBar() {
     setShowMobileMenu(false)
   }, [])
 
-  const scrollToTop = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [])
-
   return (
     <>
       <div ref={ref} className="absolute left-0 top-0 h-px w-px bg-transparent" />
@@ -68,7 +63,10 @@ export function SiteNavigationBar() {
             <div className="flex items-center justify-start">
               <a
                 href="#hero"
-                onClick={scrollToTop}
+                onClick={(e) => {
+                  e.preventDefault()
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
                 className="-ml-1 flex h-10 w-10 items-center justify-center rounded-lg"
               >
                 <Image
@@ -104,7 +102,7 @@ export function SiteNavigationBar() {
                 })}
               </nav>
 
-              <Button round variant="flat" href="/contact">
+              <Button size='base' href="/contact">
                 Contact Us
               </Button>
 

@@ -18,9 +18,9 @@ export function InvoiceIllustration({ className }: { className?: string }) {
               <div className="flex size-8 items-center justify-center rounded-lg bg-primary">
                 <span className="text-sm font-bold text-white">E</span>
               </div>
-              <div className="mt-4 font-mono text-xs text-tertiary">INC-456789</div>
+              <div className="mt-4 font-mono text-sm text-tertiary">INC-456789</div>
               <div className="mt-1 -translate-x-1 font-mono text-2xl font-semibold">Active</div>
-              <div className="text-xs font-medium text-secondary">Fire alarm — Level 3</div>
+              <div className="text-sm font-medium text-secondary">Fire alarm, Level 3</div>
             </div>
 
             <DocumentIllustration />

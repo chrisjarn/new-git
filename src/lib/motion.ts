@@ -41,5 +41,10 @@ export function staggerContainer(stagger = 0.08): Variants {
   }
 }
 
-export const viewportOnce = { once: true, amount: 0.3 }
+export const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 24 },
+  visible: { opacity: 1, x: 0, transition },
+}
+
+export const viewportOnce = { once: true, amount: 0.1, margin: '-80px' as `${number}px` }
 

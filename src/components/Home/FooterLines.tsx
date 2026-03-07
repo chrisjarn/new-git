@@ -29,7 +29,7 @@ const lineVariants = {
   },
 };
 
-export default function FooterLines() {
+export default function FooterLines({ showGlow = true }: { showGlow?: boolean }) {
   return (
     <m.div
       variants={containerVariants}
@@ -50,6 +50,15 @@ export default function FooterLines() {
             className="absolute inset-x-0 bottom-0 h-1 rounded-[4px]"
             style={{ backgroundColor: line.color }}
           />
+          {showGlow && line.custom === 3 && (
+            <span
+              className="absolute -inset-x-24 top-full h-48 md:-inset-x-48 md:h-64"
+              style={{
+                background: `radial-gradient(ellipse 70% 100% at 50% 0%, ${line.color} 0%, transparent 70%)`,
+                opacity: 0.3,
+              }}
+            />
+          )}
         </m.div>
       ))}
     </m.div>
