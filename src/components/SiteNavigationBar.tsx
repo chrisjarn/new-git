@@ -67,7 +67,7 @@ export function SiteNavigationBar() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/favicon.svg"
+                  src="/era-icon.svg"
                   className="h-10 w-10"
                   alt="ERA Safety"
                 />
