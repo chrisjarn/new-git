@@ -9,7 +9,7 @@ interface WorkflowProgressLineProps {
 // Step thresholds — line changes color after crossing each step's midpoint
 const RED = 'rgb(239 68 68)' // red-500
 const BRAND = 'rgb(229 77 46)' // brand-primary (tomato-9 approx)
-const GREEN = 'rgb(16 185 129)' // emerald-500
+const GREEN = 'rgb(74 222 128)' // green-400, matches IsometricCity
 
 export function WorkflowProgressLine({ scrollYProgress }: WorkflowProgressLineProps) {
   const height = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])

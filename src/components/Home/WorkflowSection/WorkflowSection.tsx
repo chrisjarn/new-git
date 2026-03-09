@@ -35,7 +35,7 @@ export function WorkflowSection() {
       variants={staggerContainer(0.1)}
       initial={prefersReducedMotion ? 'visible' : 'hidden'}
       animate={animate}
-      className="mt-16 mb-24 w-full md:mt-24 md:mb-16"
+      className="mt-16 mb-0 w-full md:mt-24 md:mb-0"
     >
       <m.div variants={fadeUp} className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-12">
         <div className="flex flex-col gap-3">

@@ -38,10 +38,10 @@ export function PhoneMockup() {
         </h3>
 
         <div className="flex flex-row gap-3">
-          <Button size="large" variant="brand" href="/how-it-works">
+          <Button size="large" variant="brand" href="/contact">
             Book Demo
           </Button>
-          <Button size="large" variant="flat" href="/how-it-works">
+          <Button size="large" variant="flat" href="/contact">
             Contact Us
           </Button>
         </div>

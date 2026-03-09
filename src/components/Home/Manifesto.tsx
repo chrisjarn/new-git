@@ -23,6 +23,7 @@ import { ComplianceSection } from './ComplianceSection'
 import { DemoSection } from './DemoSection'
 import { PhoneMockup } from './PhoneMockup'
 import FooterLines from './FooterLines'
+import IsometricCity from '@/components/illustrations/IsometricCity'
 import { fadeUp, staggerContainer } from '@/lib/motion'
 
 export function Manifesto() {
@@ -97,8 +98,9 @@ export function Manifesto() {
       </div>
 
       {/* Compliance Gaps — The Problem */}
-      <WidthContainer className="relative z-0 gap-0 pt-20 pb-0 md:pt-16 md:pb-24 lg:pt-30 lg:pb-12 xl:pt-30 xl:pb-12">
+      <WidthContainer className="relative z-0 gap-0 pt-20 pb-0 md:pt-16 md:pb-0 lg:pt-30 lg:pb-0 xl:pt-30 xl:pb-0">
         <ComplianceGapsSection />
+        <IsometricCity />
       </WidthContainer>
 
       {/* Testimonials — Social Proof */}
@@ -179,7 +181,7 @@ function CTA() {
       <Button
         variant="brand"
         size='large'
-        href="/demo"
+        href="/contact"
         rightSlot={<ArrowRightCircleIcon />}
 
       >

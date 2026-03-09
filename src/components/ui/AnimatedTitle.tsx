@@ -17,15 +17,22 @@ interface AnimatedTitleProps {
   children: string | string[]
   className?: string
   as?: 'h2' | 'h3'
+  /** When true, plays the reveal animation. When omitted, uses whileInView. */
+  triggered?: boolean
 }
 
-export function AnimatedTitle({ children, className, as = 'h2' }: AnimatedTitleProps) {
+export function AnimatedTitle({ children, className, as = 'h2', triggered }: AnimatedTitleProps) {
   const Tag = as === 'h2' ? m.h2 : m.h3
   const lines = Array.isArray(children) ? children : [children]
 
   return (
     <Tag
       variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.04 } } }}
+      initial="hidden"
+      {...(triggered !== undefined
+        ? { animate: triggered ? 'visible' : 'hidden' }
+        : { whileInView: 'visible', viewport: { once: true, amount: 0.5 } }
+      )}
       className={cn(
         'text-balance text-[clamp(2.2rem,_5vw,_3.2rem)] font-semibold leading-[1.05] tracking-[-0.02em]',
         className

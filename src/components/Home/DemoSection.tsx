@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button'
 import { Avatar } from '@/components/ui/Avatar'
 import { fadeUp, staggerContainer } from '@/lib/motion'
 import { AnimatedTitle } from '@/components/ui/AnimatedTitle'
+import SvgShortfall from '@/components/illustrations/SvgShortfall'
 
 const talkingPoints = [
   'Coordinate incidents in real time',
@@ -35,6 +36,7 @@ export function DemoSection() {
     >
       {/* Header */}
       <m.div variants={fadeUp} className="flex flex-col items-center gap-3 text-center">
+
         <AnimatedTitle>See ERA in action</AnimatedTitle>
         <p className="font-jakarta text-secondary max-w-xl text-pretty text-[clamp(0.95rem,_1.5vw,_1.1rem)] leading-snug">
           Incidents, hazards, training, and compliance. One system, always current, everyone connected.
@@ -66,7 +68,7 @@ export function DemoSection() {
               </ul>
             </div>
             <div className="flex items-center justify-between gap-4">
-              <Button variant="brand" size="large" href="/demo">
+              <Button variant="brand" size="large" href="/contact">
                 Book a Demo
               </Button>
               <div className="flex -space-x-2">
@@ -109,7 +111,7 @@ export function DemoSection() {
             </ul>
           </div>
           <div className="flex items-center justify-between gap-4">
-            <Button variant="brand" size="large" href="/demo">
+            <Button variant="brand" size="large" href="/contact">
               Book a Demo
             </Button>
             <div className="flex -space-x-2">

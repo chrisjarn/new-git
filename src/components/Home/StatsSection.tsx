@@ -51,7 +51,7 @@ export function StatsSection() {
         <Button
           variant="base"
           size="large"
-          href="/demo"
+          href="/contact"
           rightSlot={<ArrowRightCircleIcon size={24} />}
         >
           Book a Demo
