@@ -8,6 +8,7 @@ import { DocumentPdfIllustration } from '@/components/illustrations/document-pdf
 import { DocumentDocxIllustration } from '@/components/illustrations/document-docx'
 import { DocumentXlxIllustration } from '@/components/illustrations/document-xlx'
 import { EraLogo } from '@/components/illustrations/era-logo'
+import { viewportOnce } from '@/lib/motion'
 
 const easeSwift = [0.19, 1, 0.22, 1] as const
 
@@ -69,7 +70,7 @@ const cardFloatVariants = {
 export function MySiteIllustration() {
   const [measureRef, bounds] = useMeasure()
   const inViewRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(inViewRef, { once: true, amount: 0.4 })
+  const isInView = useInView(inViewRef, viewportOnce)
   const prefersReducedMotion = useReducedMotion()
   const layout = useMemo(
     () => computeLayout(bounds.width, bounds.height),

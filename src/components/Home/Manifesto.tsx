@@ -21,6 +21,7 @@ import { StatsSection } from './StatsSection'
 import { SectorsSection } from './SectorsSection'
 import { ComplianceSection } from './ComplianceSection'
 import { DemoSection } from './DemoSection'
+import { PersonaSection } from './PersonaSection'
 import { PhoneMockup } from './PhoneMockup'
 import FooterLines from './FooterLines'
 import IsometricCity from '@/components/illustrations/IsometricCity'
@@ -30,7 +31,7 @@ export function Manifesto() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="relative z-10 w-full overflow-hidden">
       {/* Hero */}
       <div id="hero" className="scroll-mt-16" />
       <WidthContainer className="gap-4 pt-40 md:pt-16 lg:pt-20 lg:text-start xl:pt-24 2xl:pt-28">
@@ -66,13 +67,18 @@ export function Manifesto() {
         </m.div>
       </WidthContainer>
 
-      {/* Hero Preview — bento grid */}
-      <WidthContainer className="py-16 md:py-12 lg:py-16">
-        <HeroPreview />
+      {/* Persona Tabs — Who ERA is built for */}
+      <WidthContainer className="py-16 md:py-16 lg:py-20 xl:py-24">
+        <PersonaSection />
       </WidthContainer>
 
+      {/* Hero Preview — bento grid */}
+      {/* <WidthContainer className="py-16 md:py-12 lg:py-16">
+        <HeroPreview />
+      </WidthContainer> */}
+
       {/* Feature sections */}
-      <div id="features" className="scroll-mt-16" />
+      <div id="features" className="scroll-mt-0" />
       <WidthContainer className="gap-0 py-16 md:py-16 lg:py-20 xl:py-24">
         <CriticalSection />
 
@@ -99,7 +105,9 @@ export function Manifesto() {
 
       {/* Compliance Gaps — The Problem */}
       <WidthContainer className="relative z-0 gap-0 pt-20 pb-0 md:pt-16 md:pb-0 lg:pt-30 lg:pb-0 xl:pt-30 xl:pb-0">
-        <ComplianceGapsSection />
+        <div className="relative z-10">
+          <ComplianceGapsSection />
+        </div>
         <IsometricCity />
       </WidthContainer>
 

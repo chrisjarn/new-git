@@ -16,21 +16,24 @@ export function WorkflowProgressLine({ scrollYProgress }: WorkflowProgressLinePr
   // Color changes after the line has passed through each step's circle
   const backgroundColor = useTransform(
     scrollYProgress,
-    [0, 0.44, 0.45, 0.77, 0.78, 1],
+    [0, 0.44, 0.45, 0.76, 0.77, 1],
     [RED, RED, BRAND, BRAND, GREEN, GREEN]
   )
 
   return (
     <div
       aria-hidden="true"
-      className="absolute -left-[0.825rem] top-0 flex h-[calc(100%-2rem)] w-0.5 flex-col overflow-hidden bg-tertiary-surface md:left-1/2 md:-translate-x-1/2"
+      className="absolute -left-[0.825rem] top-0 flex h-[calc(100%+3.5rem)] w-0.5 flex-col overflow-hidden bg-tertiary-surface md:left-1/2 md:-translate-x-1/2"
     >
-      <m.div
-        style={{ height, backgroundColor }}
-        className="absolute left-0 top-0 w-full rounded-full"
-      />
-      <div className="absolute top-0 h-24 w-full bg-gradient-to-b from-primary-surface" />
-      <div className="absolute bottom-0 h-24 w-full bg-gradient-to-t from-primary-surface" />
+      {/* Inner wrapper constrains fill to step-circle range; grey track extends beyond */}
+      <div className="absolute left-0 top-0 h-[calc(100%-0rem)] w-full">
+        <m.div
+          style={{ height, backgroundColor }}
+          className="absolute left-0 top-0 w-full rounded-full"
+        />
+      </div>
+      <div className="absolute top-0 h-24 w-full bg-gradient-to-b z-100 from-green-2" />
+      <div className="absolute bottom-0 h-40 w-full bg-gradient-to-t z-100 from-background" />
     </div>
   )
 }

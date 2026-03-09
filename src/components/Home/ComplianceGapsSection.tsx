@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { m, useInView, useReducedMotion } from 'motion/react'
-import { staggerContainer, fadeUp } from '@/lib/motion'
+import { staggerContainer, fadeUp, viewportOnce } from '@/lib/motion'
 import { AnimatedTitle } from '@/components/ui/AnimatedTitle'
 import { BentoCard } from './BentoCard'
 import { ChatBubbles } from './ChatBubbles'
@@ -37,7 +37,7 @@ const gaps = [
 
 export function ComplianceGapsSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.05, margin: '100px' as `${number}px` })
+  const isInView = useInView(ref, viewportOnce)
   const prefersReducedMotion = useReducedMotion()
   const animate = prefersReducedMotion || isInView ? 'visible' : 'hidden'
 

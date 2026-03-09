@@ -8,15 +8,23 @@ interface FeatureTabsProps {
   accentColor: string
   sectionId: string
   surfaceColor?: string
+  activeIndex?: number
+  onTabChange?: (index: number) => void
+  size?: 'sm' | 'base'
 }
 
-export function FeatureTabs({ items, accentColor, sectionId, surfaceColor }: FeatureTabsProps) {
-  const [activeIndex, setActiveIndex] = useState(0)
+export function FeatureTabs({ items, accentColor, sectionId, surfaceColor, activeIndex: controlledIndex, onTabChange, size = 'sm' }: FeatureTabsProps) {
+  const [internalIndex, setInternalIndex] = useState(0)
+  const activeIndex = controlledIndex ?? internalIndex
   const prefersReducedMotion = useReducedMotion()
   const scrollRef = useRef<HTMLDivElement>(null)
 
   function handleClick(index: number, el: HTMLButtonElement) {
-    setActiveIndex(index)
+    if (onTabChange) {
+      onTabChange(index)
+    } else {
+      setInternalIndex(index)
+    }
     const container = scrollRef.current
     if (!container) return
     const scrollLeft = el.offsetLeft - container.offsetWidth / 2 + el.offsetWidth / 2
@@ -34,7 +42,7 @@ export function FeatureTabs({ items, accentColor, sectionId, surfaceColor }: Fea
       <LayoutGroup id={sectionId}>
         <div
           ref={scrollRef}
-          className="flex gap-2 overflow-x-auto px-4 py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] md:px-8"
+          className="flex gap-2 overflow-x-auto px-2 py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] md:px-8"
         >
           {items.map((item, index) => {
             const isActive = index === activeIndex
@@ -43,7 +51,7 @@ export function FeatureTabs({ items, accentColor, sectionId, surfaceColor }: Fea
                 key={item}
                 type="button"
                 onClick={(e) => handleClick(index, e.currentTarget)}
-                className="text-secondary relative whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold transition-colors"
+                className={`text-secondary relative whitespace-nowrap rounded-full font-semibold transition-colors ${size === 'base' ? 'px-4 py-2.5 text-base' : 'px-3 py-2 text-sm'}`}
                 style={{
                   color: isActive ? accentColor : undefined,
                 }}
